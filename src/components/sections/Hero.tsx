@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 
 export function Hero() {
-  const { person, stats } = portfolioData;
+  const { person } = portfolioData;
 
   return (
     <section
@@ -51,39 +51,17 @@ export function Hero() {
             <Button href="#work" variant="primary" size="lg">
               View Selected Work
             </Button>
-            <Button href="#contact" variant="outline" size="lg">
-              Let&apos;s Connect
+            <Button href="/contact" variant="outline" size="lg">
+              Contact Me
             </Button>
           </div>
         </motion.div>
 
-        <motion.div
-          className="mt-16 grid grid-cols-2 gap-6 sm:grid-cols-3 sm:gap-8"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="glass rounded-2xl p-6 text-center transition-all hover:border-accent/30"
-            >
-              <p className="text-3xl font-bold text-accent sm:text-4xl">
-                {stat.value}
-                {stat.suffix && (
-                  <span className="text-accent-bright">{stat.suffix}</span>
-                )}
-              </p>
-              <p className="mt-1 text-sm text-muted">{stat.label}</p>
-            </div>
-          ))}
-        </motion.div>
-
         <motion.p
-          className="mt-12 text-center text-sm text-muted sm:text-left"
+          className="mt-12 text-sm text-muted"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
+          transition={{ delay: 0.3 }}
         >
           Open to remote collaboration, internships & hackathons.
         </motion.p>

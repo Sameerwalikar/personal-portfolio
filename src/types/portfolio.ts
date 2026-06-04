@@ -4,12 +4,6 @@ export interface SocialLink {
   icon: "linkedin" | "leetcode" | "github" | "mail" | "phone";
 }
 
-export interface Stat {
-  label: string;
-  value: string;
-  suffix?: string;
-}
-
 export interface Project {
   id: string;
   title: string;
@@ -66,7 +60,6 @@ export interface PortfolioData {
     heroTagline: string;
   };
   socials: SocialLink[];
-  stats: Stat[];
   projects: Project[];
   experience: Experience[];
   education: Education[];

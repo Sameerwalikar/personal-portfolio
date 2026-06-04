@@ -17,11 +17,6 @@ export const portfolioData: PortfolioData = {
   },
   socials: [
     {
-      label: "Email",
-      href: "mailto:sameerwalikar999@gmail.com",
-      icon: "mail",
-    },
-    {
       label: "LinkedIn",
       href: "https://www.linkedin.com/in/sameer-walikar",
       icon: "linkedin",
@@ -31,16 +26,6 @@ export const portfolioData: PortfolioData = {
       href: "https://leetcode.com/u/sameerwalikar999",
       icon: "leetcode",
     },
-    {
-      label: "Phone",
-      href: "tel:+919008341099",
-      icon: "phone",
-    },
-  ],
-  stats: [
-    { label: "Projects", value: "5", suffix: "+" },
-    { label: "Skills", value: "20", suffix: "+" },
-    { label: "Hackathons", value: "4", suffix: "+" },
   ],
   projects: [
     {

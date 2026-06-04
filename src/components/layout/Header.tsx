@@ -66,10 +66,10 @@ export function Header() {
         </nav>
 
         <Link
-          href="#contact"
+          href="/contact"
           className="hidden rounded-xl bg-accent px-5 py-2.5 text-sm font-semibold text-background transition-colors hover:bg-accent-bright md:inline-flex"
         >
-          Get in Touch
+          Contact Me
         </Link>
 
         <button
@@ -97,11 +97,11 @@ export function Header() {
               </Link>
             ))}
             <Link
-              href="#contact"
+              href="/contact"
               className="mt-2 rounded-xl bg-accent px-4 py-3 text-center font-semibold text-background"
               onClick={() => setMobileOpen(false)}
             >
-              Get in Touch
+              Contact Me
             </Link>
           </nav>
         </div>
