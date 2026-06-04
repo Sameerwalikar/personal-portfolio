@@ -84,4 +84,10 @@
   .section-container {
     @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
   }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
 }
