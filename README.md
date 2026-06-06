@@ -187,7 +187,7 @@ Computer Engineering Student | Full Stack Developer | AI Enthusiast
 
 ## 📄 License
 
-This project is licensed under the MIT License.
+
 
 Feel free to fork, modify, and use it as inspiration for your own portfolio.
 
