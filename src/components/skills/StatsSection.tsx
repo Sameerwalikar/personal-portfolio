@@ -1,13 +1,25 @@
-"use client";
+import dynamic from "next/dynamic";
+import { LazyMounted } from "@/components/ui/lazy-mounted";
 
-import { GitHubCalendar } from "@/components/stats/GitHubCalendar";
-import { LeetCodeHeatmap } from "@/components/stats/LeetCodeHeatmap";
+const GitHubCalendar = dynamic(
+  () => import("@/components/stats/GitHubCalendar").then((mod) => mod.GitHubCalendar),
+  { ssr: false }
+);
+
+const LeetCodeHeatmap = dynamic(
+  () => import("@/components/stats/LeetCodeHeatmap").then((mod) => mod.LeetCodeHeatmap),
+  { ssr: false }
+);
 
 export function StatsSection() {
   return (
     <div className="space-y-5">
-      <GitHubCalendar />
-      <LeetCodeHeatmap />
+      <LazyMounted minHeight="150px">
+        <GitHubCalendar />
+      </LazyMounted>
+      <LazyMounted minHeight="150px">
+        <LeetCodeHeatmap />
+      </LazyMounted>
     </div>
   );
 }

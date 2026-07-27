@@ -35,7 +35,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
         label: "MARKUP & STYLE",
         items: [
           { name: "HTML", icon: "/images/whatiuse/languages/html.png" },
-          { name: "CSS", icon: "/images/whatiuse/languages/css.png" },
+          { name: "CSS", icon: "/images/whatiuse/languages/css.jpg" },
         ],
       },
     ],

@@ -4,11 +4,13 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowLeft, Copy, Check, Mail } from "lucide-react";
-import { MailMePanel } from "@/components/contact/MailMePanel";
-import { ScheduleCallPanel } from "@/components/contact/ScheduleCallPanel";
-import { portfolioData } from "@/data/portfolio";
+import dynamic from "next/dynamic";
 import { CometCard } from "@/components/ui/comet-card";
 import { FloatingPathsBackground } from "@/components/ui/floating-paths";
+import { portfolioData } from "@/data/portfolio";
+
+const MailMePanel = dynamic(() => import("@/components/contact/MailMePanel").then((mod) => mod.MailMePanel), { ssr: false });
+const ScheduleCallPanel = dynamic(() => import("@/components/contact/ScheduleCallPanel").then((mod) => mod.ScheduleCallPanel), { ssr: false });
 
 export function ContactClient() {
   const { person } = portfolioData;

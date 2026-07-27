@@ -1,16 +1,21 @@
-'use client'
+
+"use client";
 
 import React from "react";
-import Link from "next/link";
 import { portfolioData } from "@/data/portfolio";
-import { SocialIcon } from "@/components/icons/SocialIcons";
-import { SplineScene } from "@/components/ui/splite";
+import dynamic from "next/dynamic";
+import { LazyMounted } from "@/components/ui/lazy-mounted";
+
+const SplineScene = dynamic(
+  () => import("@/components/ui/splite").then((mod) => mod.SplineScene),
+  { ssr: false }
+);
 import { Card } from "@/components/ui/Card";
 import { Spotlight } from "@/components/ui/spotlight";
 
 export function Footer() {
   const year = new Date().getFullYear();
-  const { person, socials } = portfolioData;
+  const { person } = portfolioData;
 
   return (
     <footer className="w-full">
@@ -44,24 +49,6 @@ export function Footer() {
                 </p>
               </div>
 
-              {/* Social links */}
-              <div className="flex items-center gap-4 py-2">
-                {socials
-                  .filter((social) => social.icon !== "leetcode" && social.icon !== "github")
-                  .map((social) => (
-                    <Link
-                      key={social.label}
-                      href={social.href}
-                      target={social.href.startsWith("http") ? "_blank" : undefined}
-                      rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted transition-all hover:border-accent hover:text-accent hover:glow-ring bg-black/40"
-                      aria-label={social.label}
-                    >
-                      <SocialIcon icon={social.icon} className="h-4 w-4" />
-                    </Link>
-                  ))}
-              </div>
-
               {/* Copyright */}
               <p className="text-xs text-muted">
                 © {year} {person.fullName}. All rights reserved.
@@ -71,10 +58,12 @@ export function Footer() {
 
           {/* Right content (3D Robot Scene) */}
           <div className="flex-1 relative w-full h-[300px] md:h-auto min-h-[300px] md:min-h-0">
-            <SplineScene 
-              scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-              className="w-full h-full"
-            />
+            <LazyMounted minHeight="300px">
+              <SplineScene 
+                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                className="w-full h-full"
+              />
+            </LazyMounted>
           </div>
 
         </div>

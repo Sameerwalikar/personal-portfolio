@@ -153,27 +153,29 @@ export const portfolioData: PortfolioData = {
   ],
   achievements: [
     {
+      id: "backend-heist",
+      title: "3rd Place — Backend Heist",
+      description: "Secured 3rd place at Backend Heist, hosted by GDG On Campus Presidency University — from concepts to quiz to a real-world challenge, testing how I think under pressure.",
+    },
+    {
       id: "build-with-ai",
-      title: "First Runner-Up — Build With AI International 24-Hour Hackathon",
-      description: "Among 118 teams at Presidency University",
+      title: "First Runner-Up — Build With AI",
+      description: "First Runner-Up among 118 teams at the 'Build With AI' International 24-Hour Hackathon, Presidency University.",
     },
     {
       id: "sih-2025",
-      title: "SIH 2025 — Top 25 (Semi-finals Qualified)",
-    },
-    {
-      id: "agentathon",
-      title: "Top 6 — Agentathon Hackathon, PES University",
+      title: "Top 25 — Smart India Hackathon 2025",
+      description: "Qualified for semi-finals, ranking in the Top 25 at Smart India Hackathon (SIH) 2025.",
     },
     {
       id: "edc-lor",
-      title: "Letter of Recommendation from EDC IIT Delhi",
-      description: "Top 10% performers as Campus Ambassador",
+      title: "Letter of Recommendation — EDC IIT Delhi",
+      description: "Received a Letter of Recommendation from EDC IIT Delhi for ranking in the top 10% of performers.",
     },
     {
       id: "techbizz",
-      title: "Hosted 24-Hour Campus Hackathon — techbizz",
-      description: "Successfully organized and led a full-day software hackathon on campus",
+      title: "Organizer & Host — TechBizz",
+      description: "Organized and hosted 'TechBizz,' a 24-hour campus-wide software hackathon.",
     },
   ],
   skills: [

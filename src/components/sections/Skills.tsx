@@ -4,12 +4,14 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { CardStack } from "@/components/skills/CardStack";
-import { BadgeGrid } from "@/components/skills/BadgeGrid";
-import { CertificatesSection } from "@/components/skills/CertificatesSection";
-import { IUseSection } from "@/components/skills/IUseSection";
-import { SystemSpecsSection } from "@/components/skills/SystemSpecsSection";
-import { StatsSection } from "@/components/skills/StatsSection";
+import dynamic from "next/dynamic";
+
+const CardStack = dynamic(() => import("@/components/skills/CardStack").then((mod) => mod.CardStack), { ssr: false });
+const BadgeGrid = dynamic(() => import("@/components/skills/BadgeGrid").then((mod) => mod.BadgeGrid), { ssr: false });
+const CertificatesSection = dynamic(() => import("@/components/skills/CertificatesSection").then((mod) => mod.CertificatesSection), { ssr: false });
+const IUseSection = dynamic(() => import("@/components/skills/IUseSection").then((mod) => mod.IUseSection), { ssr: false });
+const SystemSpecsSection = dynamic(() => import("@/components/skills/SystemSpecsSection").then((mod) => mod.SystemSpecsSection), { ssr: false });
+const StatsSection = dynamic(() => import("@/components/skills/StatsSection").then((mod) => mod.StatsSection), { ssr: false });
 import { cn } from "@/lib/utils";
 
 type Tab = "skills" | "badges" | "certificates" | "iuse" | "specs" | "stats";

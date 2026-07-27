@@ -42,19 +42,23 @@ export const metadata: Metadata = {
   },
 };
 
+import { ScrollProvider } from "@/components/layout/scroll-provider";
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <ScrollProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </ScrollProvider>
       </body>
     </html>
   );
