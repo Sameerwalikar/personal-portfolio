@@ -25,15 +25,18 @@ interface Particle {
 function useParticles(count: number): Particle[] {
   return useMemo(
     () =>
-      Array.from({ length: count }, (_, i) => ({
-        id: i,
-        x: Math.random() * 100,
-        y: Math.random() * 100,
-        size: Math.random() * 3 + 1,
-        delay: Math.random() * 4,
-        duration: Math.random() * 4 + 4,
-        opacity: Math.random() * 0.6 + 0.2,
-      })),
+      /* Deterministic positions — avoid SSR/client mismatch */
+      Array.from({ length: count }, (_, i) => {
+        return {
+          id: i,
+          x: ((i * 73 + 17) % 100),
+          y: ((i * 47 + 31) % 100),
+          size: 1.5 + (i % 3) * 0.9,
+          delay: (i * 0.37) % 4,
+          duration: 4 + (i % 5),
+          opacity: 0.25 + ((i / count) * 0.55),
+        };
+      }),
     [count],
   );
 }
