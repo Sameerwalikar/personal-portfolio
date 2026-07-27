@@ -67,7 +67,7 @@ export function Header() {
 
         <Link
           href="/contact"
-          className="hidden rounded-xl bg-accent px-5 py-2.5 text-sm font-semibold text-background transition-colors hover:bg-accent-bright md:inline-flex"
+          className="hidden rounded-xl bg-accent px-5 py-2.5 text-sm font-semibold text-background transition-all duration-200 hover:bg-green-400 hover:scale-[1.02] active:scale-[0.95] hover:shadow-[0_0_20px_rgba(34,197,94,0.4)] md:inline-flex"
         >
           Contact Me
         </Link>
@@ -98,7 +98,7 @@ export function Header() {
             ))}
             <Link
               href="/contact"
-              className="mt-2 rounded-xl bg-accent px-4 py-3 text-center font-semibold text-background"
+              className="mt-2 rounded-xl bg-accent px-4 py-3 text-center font-semibold text-background transition-all duration-200 hover:bg-green-400 hover:scale-[1.02] active:scale-[0.95] hover:shadow-[0_0_20px_rgba(34,197,94,0.4)]"
               onClick={() => setMobileOpen(false)}
             >
               Contact Me
