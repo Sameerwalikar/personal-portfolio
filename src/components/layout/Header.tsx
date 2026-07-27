@@ -8,9 +8,9 @@ import { portfolioData } from "@/data/portfolio";
 
 const navLinks = [
   { href: "#work", label: "Work" },
-  { href: "#experience", label: "Experience" },
+  { href: "#education", label: "Background" },
   { href: "#skills", label: "Skills" },
-  { href: "#education", label: "Education" },
+  { href: "#achievements", label: "Awards" },
   { href: "#contact", label: "Contact" },
 ];
 

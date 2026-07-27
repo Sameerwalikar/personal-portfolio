@@ -29,11 +29,11 @@ export type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    "bg-accent text-background font-semibold hover:bg-accent-bright shadow-[0_0_30px_-5px_rgba(34,197,94,0.5)]",
-  secondary: "glass text-foreground hover:border-accent/50 hover:bg-surface-elevated",
-  ghost: "text-muted hover:text-accent hover:bg-accent-glow",
+    "bg-accent text-background font-semibold hover:bg-accent-bright shadow-[0_0_30px_-5px_rgba(34,197,94,0.5)] hover:shadow-[0_0_40px_-3px_rgba(34,197,94,0.7)] active:scale-[0.97]",
+  secondary: "glass text-foreground hover:border-accent/50 hover:bg-surface-elevated active:scale-[0.97]",
+  ghost: "text-muted hover:text-accent hover:bg-accent-glow active:scale-[0.97]",
   outline:
-    "border border-accent/40 text-accent hover:bg-accent/10 hover:border-accent",
+    "border border-accent/40 text-accent hover:bg-accent/10 hover:border-accent hover:shadow-[0_0_20px_rgba(34,197,94,0.15)] active:scale-[0.97]",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {

@@ -11,7 +11,7 @@ export function Footer() {
       <div className="section-container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
         <div className="text-center sm:text-left">
           <p className="font-semibold text-foreground">{person.fullName}</p>
-          <p className="mt-1 text-sm text-muted">{person.title} · {person.location}</p>
+          <p className="mt-1 text-sm text-muted">{person.title} · <span className="india-underline">{person.location}</span></p>
         </div>
 
         <div className="flex items-center gap-4">

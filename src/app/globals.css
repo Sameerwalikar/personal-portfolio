@@ -85,9 +85,208 @@
     @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
   }
 
+  /* Paragraph-level hover underline — entire block as one target */
+  .paragraph-underline {
+    position: relative;
+    display: block;
+  }
+
+  .paragraph-underline::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    border-radius: 1px;
+    background: linear-gradient(
+      90deg,
+      var(--color-accent-dim),
+      var(--color-accent-bright)
+    );
+    transition: width 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .paragraph-underline:hover::after {
+    width: 100%;
+  }
+
+  /* India flag underline */
+  .india-underline {
+    position: relative;
+    display: inline-block;
+    cursor: default;
+  }
+
+  .india-underline::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2.5px;
+    border-radius: 2px;
+    background: linear-gradient(
+      90deg,
+      #ff9933 0%,
+      #ff9933 33.3%,
+      #ffffff 33.3%,
+      #ffffff 66.6%,
+      #138808 66.6%,
+      #138808 100%
+    );
+    transition: width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .india-underline:hover::after {
+    width: 100%;
+  }
+
+  /* Keyword highlight underline */
+  .highlight-word {
+    position: relative;
+    display: inline-block;
+  }
+
+  .highlight-word::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    border-radius: 1px;
+    background: var(--color-accent);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .highlight-word:hover::after {
+    width: 100%;
+  }
+
+  /* Hover underline for links/text */
+  .hover-underline {
+    position: relative;
+    display: inline-block;
+  }
+
+  .hover-underline::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--color-accent);
+    transition: width 0.3s ease;
+  }
+
+  .hover-underline:hover::after {
+    width: 100%;
+  }
+
   @keyframes spin {
     to {
       transform: rotate(360deg);
     }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
+    33% { transform: translateY(-12px) rotate(5deg); opacity: 1; }
+    66% { transform: translateY(-6px) rotate(-3deg); opacity: 0.8; }
+  }
+
+  @keyframes particle-drift {
+    0% { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+    20% { opacity: 0.8; }
+    80% { opacity: 0.4; }
+    100% { transform: translateY(-80px) translateX(20px) scale(0.3); opacity: 0; }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+
+  @keyframes pulse-ring {
+    0% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.04); opacity: 0.3; }
+    100% { transform: scale(1); opacity: 0.6; }
+  }
+
+  @keyframes ripple {
+    0% { transform: scale(0); opacity: 0.6; }
+    100% { transform: scale(2.5); opacity: 0; }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-ring {
+    animation: pulse-ring 3s ease-in-out infinite;
+  }
+
+  .shimmer-text {
+    background-size: 200% auto;
+    background-image: linear-gradient(
+      90deg,
+      var(--color-accent) 0%,
+      var(--color-accent-bright) 40%,
+      var(--color-foreground) 60%,
+      var(--color-accent) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s linear infinite;
+  }
+
+  /* Timeline connector line */
+  .timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      var(--color-accent) 10%,
+      var(--color-accent) 90%,
+      transparent
+    );
+    transform: translateX(-50%);
+  }
+
+  /* Button ripple effect */
+  .btn-ripple {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-ripple::before {
+    content: "";
+    position: absolute;
+    inset: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease, opacity 0.6s ease;
+    opacity: 0;
+  }
+
+  .btn-ripple:hover::before {
+    width: 300px;
+    height: 300px;
+    opacity: 1;
+  }
+
+  .btn-ripple:active::before {
+    opacity: 0;
+    transition: none;
   }
 }

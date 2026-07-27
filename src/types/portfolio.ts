@@ -13,6 +13,17 @@ export interface Project {
   category: string;
   href?: string;
   github?: string;
+  image?: string;
+}
+
+export interface Education {
+  id: string;
+  institution: string;
+  degree: string;
+  period: string;
+  location: string;
+  score?: string;
+  logo?: string;
 }
 
 export interface Experience {
@@ -23,14 +34,7 @@ export interface Experience {
   location: string;
   type: string;
   highlights: string[];
-}
-
-export interface Education {
-  id: string;
-  institution: string;
-  degree: string;
-  period: string;
-  location: string;
+  logo?: string;
 }
 
 export interface Achievement {
