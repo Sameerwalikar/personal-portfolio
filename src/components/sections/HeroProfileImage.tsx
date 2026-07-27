@@ -10,6 +10,7 @@ import {
 } from "framer-motion";
 import { useRef, useState, useMemo } from "react";
 import { portfolioData } from "@/data/portfolio";
+import Bb8Toggle from "@/components/ui/bb8-toggle";
 
 /* ─── Floating particles ──────────────────────────────────────── */
 interface Particle {
@@ -41,80 +42,11 @@ function useParticles(count: number): Particle[] {
   );
 }
 
-/* ─── Toggle switch ────────────────────────────────────────────── */
-function GraphicModeToggle({
-  enabled,
-  onToggle,
-}: {
-  enabled: boolean;
-  onToggle: () => void;
-}) {
-  return (
-    <motion.div
-      className="mt-8 w-full flex justify-center"
-      initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.8 }}
-    >
-      {/* Premium pill container */}
-      <div className="inline-flex items-center gap-3 rounded-full border border-border/60 bg-surface/80 px-4 py-2.5 backdrop-blur-sm shadow-[0_0_20px_rgba(0,0,0,0.3)]">
-        {/* Label */}
-        <span className="text-[11px] font-medium uppercase tracking-widest text-muted select-none whitespace-nowrap leading-none">
-          Graphic Mode
-        </span>
-
-        {/* Switch track */}
-        <button
-          type="button"
-          role="switch"
-          aria-checked={enabled}
-          aria-label="Toggle graphic mode"
-          onClick={onToggle}
-          className="relative h-6 w-11 shrink-0 rounded-full border transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-          style={{
-            background: enabled
-              ? "rgba(34, 197, 94, 0.18)"
-              : "rgba(15, 31, 24, 0.8)",
-            borderColor: enabled
-              ? "rgba(34, 197, 94, 0.45)"
-              : "rgba(26, 51, 40, 0.9)",
-          }}
-        >
-          {/* Thumb */}
-          <motion.span
-            className="absolute top-[3px] h-[18px] w-[18px] rounded-full"
-            animate={{ x: enabled ? 21 : 2 }}
-            transition={{ type: "spring", stiffness: 500, damping: 30 }}
-            style={{
-              background: enabled
-                ? "var(--color-accent)"
-                : "var(--color-muted)",
-              boxShadow: enabled
-                ? "0 0 10px rgba(34, 197, 94, 0.65)"
-                : "none",
-            }}
-          />
-        </button>
-
-        {/* State text */}
-        <span
-          className="w-[22px] text-[11px] font-bold leading-none select-none transition-colors duration-300"
-          style={{
-            color: enabled ? "var(--color-accent)" : "var(--color-muted)",
-          }}
-        >
-          {enabled ? "ON" : "OFF"}
-        </span>
-      </div>
-    </motion.div>
-  );
-}
-
 /* ─── Main component ───────────────────────────────────────────── */
 export function HeroProfileImage() {
   const { person } = portfolioData;
   const ref = useRef<HTMLDivElement>(null);
-  const [graphicMode, setGraphicMode] = useState(true);
+  const [isRealPhoto, setIsRealPhoto] = useState(false); // false = pixel art (default), true = real photo
   const particles = useParticles(12);
 
   const mouseX = useMotionValue(0);
@@ -223,7 +155,7 @@ export function HeroProfileImage() {
           <div className="absolute inset-[3px] overflow-hidden rounded-full bg-background">
             {/* Crossfade between pixel art and real photo */}
             <AnimatePresence mode="sync">
-              {graphicMode ? (
+              {!isRealPhoto ? (
                 <motion.div
                   key="pixel"
                   className="absolute inset-0"
@@ -283,24 +215,37 @@ export function HeroProfileImage() {
           {/* Mode badge */}
           <AnimatePresence mode="wait">
             <motion.div
-              key={graphicMode ? "pixel-label" : "real-label"}
+              key={!isRealPhoto ? "pixel-label" : "real-label"}
               className="absolute -bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-accent/30 bg-surface/90 px-3 py-1 text-xs font-medium text-accent backdrop-blur-sm"
               initial={{ opacity: 0, y: 4, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -4, scale: 0.9 }}
               transition={{ duration: 0.25 }}
             >
-              {graphicMode ? "🎮 Pixel Art" : "📷 Real Photo"}
+              {!isRealPhoto ? "🎮 Pixel Art" : "📷 Real Photo"}
             </motion.div>
           </AnimatePresence>
         </motion.div>
       </motion.div>
 
       {/* Toggle — sits below the avatar wrapper, perfectly centred */}
-      <GraphicModeToggle
-        enabled={graphicMode}
-        onToggle={() => setGraphicMode((v) => !v)}
-      />
+      <motion.div
+        className="mt-8 w-full flex justify-center"
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.8 }}
+      >
+        {/* Premium pill container */}
+        <div className="inline-flex items-center gap-3 rounded-full border border-border/60 bg-surface/80 px-4 py-2.5 backdrop-blur-sm shadow-[0_0_20px_rgba(0,0,0,0.3)]">
+          {/* Label */}
+          <span className="text-[11px] font-medium uppercase tracking-widest text-muted select-none whitespace-nowrap leading-none">
+            Graphic Mode
+          </span>
+          <div style={{ fontSize: "5.5px" }} className="flex items-center">
+            <Bb8Toggle checked={isRealPhoto} onChange={setIsRealPhoto} />
+          </div>
+        </div>
+      </motion.div>
     </div>
   );
 }
