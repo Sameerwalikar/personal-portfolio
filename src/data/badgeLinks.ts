@@ -29,6 +29,7 @@ const codingBadges: BadgeItem[] = [
   { src: "/images/badges/coding/python.svg",          alt: "HackerRank Python badge",           href: HACKERRANK },
   { src: "/images/badges/coding/problem-solving.svg", alt: "HackerRank Problem Solving badge",  href: HACKERRANK },
   { src: "/images/badges/coding/50-days.png",         alt: "LeetCode 50-day streak badge",      href: LEETCODE   },
+  { src:"/images/badges/coding/100-days.png",         alt: "LeetCode 100-day streak badge",      href: LEETCODE    }
 ];
 
 /* GitHub */
