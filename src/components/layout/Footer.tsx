@@ -58,12 +58,12 @@ export function Footer() {
 
           {/* Right content (3D Robot Scene) */}
           <div className="flex-1 relative w-full h-[300px] md:h-auto min-h-[300px] md:min-h-0">
-            <LazyMounted minHeight="300px">
+            
               <SplineScene 
                 scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
                 className="w-full h-full"
               />
-            </LazyMounted>
+            
           </div>
 
         </div>
