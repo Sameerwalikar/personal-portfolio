@@ -162,7 +162,7 @@ in your preferred browser.
 
 * Dark Mode Toggle
 * Resume Download Feature
-* Blog Section
+
 * Project Detail Pages
 * GitHub API Integration
 * Contact Form Backend
