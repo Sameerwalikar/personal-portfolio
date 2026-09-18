@@ -15,6 +15,8 @@ export function ScrollProvider({ children }: { children: React.ReactNode }) {
       touchMultiplier: 2.0,
     });
 
+    (window as unknown as { __lenis?: Lenis }).__lenis = lenis;
+
     let rafId: number;
     function raf(time: number) {
       lenis.raf(time);
@@ -24,6 +26,7 @@ export function ScrollProvider({ children }: { children: React.ReactNode }) {
     rafId = requestAnimationFrame(raf);
 
     return () => {
+      (window as unknown as { __lenis?: Lenis }).__lenis = undefined;
       lenis.destroy();
       cancelAnimationFrame(rafId);
     };
