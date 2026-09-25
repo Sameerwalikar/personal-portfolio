@@ -5,7 +5,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowLeft, Copy, Check, Mail } from "lucide-react";
 import dynamic from "next/dynamic";
-import { CometCard } from "@/components/ui/comet-card";
 import { FloatingPathsBackground } from "@/components/ui/floating-paths";
 import { portfolioData } from "@/data/portfolio";
 
@@ -71,45 +70,41 @@ export function ContactClient() {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="flex flex-col items-center justify-center gap-8 max-w-2xl mx-auto"
+            className="flex flex-col items-center justify-center gap-6 max-w-xl mx-auto w-full"
           >
-            {/* Mail Me Card wrapped in CometCard */}
-            <motion.div variants={cardVariants} className="w-full flex justify-center">
-              <CometCard className="w-full max-w-md">
-                <MailMePanel />
-              </CometCard>
+            {/* Mail Me Card wrapped in IconHover3D */}
+            <motion.div variants={cardVariants} className="w-full">
+              <MailMePanel />
             </motion.div>
 
-            {/* Schedule Call Card wrapped in CometCard */}
-            <motion.div variants={cardVariants} className="w-full flex justify-center">
-              <CometCard className="w-full max-w-md">
-                <ScheduleCallPanel />
-              </CometCard>
+            {/* Schedule Call Card wrapped in IconHover3D */}
+            <motion.div variants={cardVariants} className="w-full">
+              <ScheduleCallPanel />
             </motion.div>
 
-            {/* Direct copy email bar */}
+            {/* Direct copy email bar aligned with cards above */}
             <motion.div 
               variants={cardVariants}
-              className="w-full max-w-md glass rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 border border-white/5 bg-white/[0.02]"
+              className="w-full glass rounded-[18px] p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4 border border-border bg-surface shadow-sm"
             >
-              <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/5">
-                  <Mail className="h-5 w-5 text-accent/80" />
+              <div className="flex items-center gap-3.5">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10 border border-accent/20">
+                  <Mail className="h-5 w-5 text-accent" />
                 </div>
                 <div className="text-center sm:text-left">
                   <p className="text-xs text-muted">Or copy email directly</p>
-                  <p className="text-sm font-medium text-foreground">{person.email}</p>
+                  <p className="text-sm font-semibold text-foreground">{person.email}</p>
                 </div>
               </div>
 
               <button
                 onClick={handleCopyEmail}
-                className="relative flex items-center justify-center gap-2 px-4 py-2 text-xs font-semibold rounded-lg bg-white/5 hover:bg-white/10 hover:text-accent text-foreground transition-all duration-200 border border-white/5 active:scale-95"
+                className="relative flex items-center justify-center gap-2 px-4 py-2 text-xs font-semibold rounded-lg bg-surface-elevated hover:bg-accent/15 hover:text-accent text-foreground transition-all duration-200 border border-border hover:border-accent/40 active:scale-95 cursor-pointer"
               >
                 {copied ? (
                   <>
-                    <Check className="h-3.5 w-3.5 text-emerald-500 animate-pulse" />
-                    <span className="text-emerald-500">Copied!</span>
+                    <Check className="h-3.5 w-3.5 text-accent animate-pulse" />
+                    <span className="text-accent">Copied!</span>
                   </>
                 ) : (
                   <>

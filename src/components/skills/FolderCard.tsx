@@ -68,7 +68,7 @@ export function FolderCard({ folder, index, isSelected, onClick }: FolderCardPro
           {papers.map((paper, pIdx) => {
             // Paper fanning coordinates when active vs resting
             let restX = 0;
-            let restY = 2;
+            const restY = 2;
             let restRotate = 0;
 
             let activeX = 0;

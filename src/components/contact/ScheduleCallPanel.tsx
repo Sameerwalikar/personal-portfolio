@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { Calendar, ChevronLeft, ChevronRight, Clock } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 import { Button } from "@/components/ui/Button";
+import { IconHover3D } from "@/components/ui/icon-3d-hover";
 import { cn } from "@/lib/utils";
 import {
   SCHEDULE_CONFIG,
@@ -61,30 +62,24 @@ export function ScheduleCallPanel() {
   };
 
   return (
-    <div className="glass glow-ring rounded-2xl p-6 sm:p-8 border border-white/10 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(16,185,129,0.12)] hover:border-emerald-500/30 transition-all duration-300">
-      <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10">
-        <Calendar className="h-6 w-6 text-accent" aria-hidden />
-      </div>
-
-      <h2 className="text-xl font-semibold text-foreground">Schedule Call</h2>
-      <p className="mt-2 text-sm text-muted">
-        Pick a weekday and time slot ({SCHEDULE_CONFIG.timezone}). A pre-filled
-        email will open so you can send your request.
-      </p>
-
+    <IconHover3D
+      heading="Schedule Call"
+      text={`Pick a weekday and time slot (${SCHEDULE_CONFIG.timezone}). A pre-filled email will open so you can send your request.`}
+      className="w-full max-w-xl"
+    >
       {!expanded ? (
         <Button
           type="button"
           variant="outline"
-          size="lg"
-          className="mt-6 w-full sm:w-auto"
+          size="sm"
+          className="w-auto"
           onClick={() => setExpanded(true)}
         >
-          <Clock className="h-5 w-5" />
+          <Clock className="h-4 w-4" />
           Schedule Call
         </Button>
       ) : (
-        <div className="mt-6 space-y-6">
+        <div className="space-y-6">
           <div className="rounded-xl border border-border bg-surface-elevated/60 p-4 sm:p-5">
             <div className="mb-4 flex items-center justify-between">
               <button
@@ -201,6 +196,6 @@ export function ScheduleCallPanel() {
           )}
         </div>
       )}
-    </div>
+    </IconHover3D>
   );
 }

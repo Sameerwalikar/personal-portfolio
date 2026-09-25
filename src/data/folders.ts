@@ -88,14 +88,14 @@ export const FOLDERS_DATA: FolderItem[] = [
   {
     id: "achievements",
     title: "Certificates",
-    count: "9 Verified",
+    count: "10 Verified",
     category: "Licenses & Certs",
     previewPapers: [
       {
-        title: "Stanford & AI",
+        title: "AI & Full Stack",
         type: "certs",
         items: [
-          { icon: "/images/certificates/Sameer_Walikar_Certificate.png", label: "Sameer Walikar Cert", sublabel: "Official" },
+          { icon: "/images/certificates/ai_enginner.png", label: "AI Engineer", sublabel: "Scrimba" },
           { icon: "/images/certificates/introtogenai.jpg", label: "Intro to GenAI", sublabel: "Google Cloud" },
         ],
       },

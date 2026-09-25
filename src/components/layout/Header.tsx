@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { portfolioData } from "@/data/portfolio";
+import { NavbarContactBtn } from "@/components/ui/NavbarContactBtn";
 
 const navLinks = [
   { href: "#work", label: "Work" },
@@ -65,12 +66,7 @@ export function Header() {
           ))}
         </nav>
 
-        <Link
-          href="/contact"
-          className="hidden rounded-xl bg-accent px-5 py-2.5 text-sm font-semibold text-background transition-all duration-200 hover:bg-green-400 hover:scale-[1.02] active:scale-[0.95] hover:shadow-[0_0_20px_rgba(34,197,94,0.4)] md:inline-flex"
-        >
-          Contact Me
-        </Link>
+        <NavbarContactBtn className="hidden md:inline-flex" />
 
         <button
           type="button"
@@ -96,13 +92,9 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/contact"
-              className="mt-2 rounded-xl bg-accent px-4 py-3 text-center font-semibold text-background transition-all duration-200 hover:bg-green-400 hover:scale-[1.02] active:scale-[0.95] hover:shadow-[0_0_20px_rgba(34,197,94,0.4)]"
-              onClick={() => setMobileOpen(false)}
-            >
-              Contact Me
-            </Link>
+            <div className="mt-3 flex justify-center w-full">
+              <NavbarContactBtn onClick={() => setMobileOpen(false)} />
+            </div>
           </nav>
         </div>
       )}

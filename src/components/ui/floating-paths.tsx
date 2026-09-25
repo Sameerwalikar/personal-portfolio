@@ -12,17 +12,17 @@ export function FloatingPathsBackground({
   className?: string;
   children: React.ReactNode;
 }) {
-  const paths = Array.from({ length: 36 }, (_, i) => ({
+  const paths = Array.from({ length: 20 }, (_, i) => ({
     id: i,
-    d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${
-      380 - i * 5 * position
-    } -${189 + i * 6} -${312 - i * 5 * position} ${216 - i * 6} ${
-      152 - i * 5 * position
-    } ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${
-      684 - i * 5 * position
-    } ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
-    color: `rgba(15,23,42,${0.1 + i * 0.03})`,
-    width: 0.5 + i * 0.03,
+    d: `M-${380 - i * 9 * position} -${189 + i * 11}C-${
+      380 - i * 9 * position
+    } -${189 + i * 11} -${312 - i * 9 * position} ${216 - i * 11} ${
+      152 - i * 9 * position
+    } ${343 - i * 11}C${616 - i * 9 * position} ${470 - i * 11} ${
+      684 - i * 9 * position
+    } ${875 - i * 11} ${684 - i * 9 * position} ${875 - i * 11}`,
+    color: `rgba(15,23,42,${0.1 + i * 0.04})`,
+    width: 0.5 + i * 0.04,
   }));
   return (
     <div className={cn("w-full relative overflow-hidden", className)}>

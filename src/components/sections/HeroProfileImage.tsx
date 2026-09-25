@@ -89,23 +89,23 @@ export function HeroProfileImage() {
           aria-hidden
         />
 
-        {/* Outer spinning rings */}
+        {/* Outer spinning rings (hidden on mobile for buttery 60fps performance) */}
         <motion.div
-          className="absolute h-[88%] w-[88%] rounded-full border border-accent/20"
+          className="hidden sm:block absolute h-[88%] w-[88%] rounded-full border border-accent/20"
           animate={{ rotate: 360 }}
           transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
           aria-hidden
         />
         <motion.div
-          className="absolute h-[96%] w-[96%] rounded-full border border-dashed border-accent/15"
+          className="hidden sm:block absolute h-[96%] w-[96%] rounded-full border border-dashed border-accent/15"
           animate={{ rotate: -360 }}
           transition={{ duration: 32, repeat: Infinity, ease: "linear" }}
           aria-hidden
         />
 
-        {/* Floating particles */}
+        {/* Floating particles (hidden on mobile to eliminate continuous CPU/GPU repaint loops) */}
         <div
-          className="pointer-events-none absolute inset-0 overflow-hidden rounded-full"
+          className="hidden sm:block pointer-events-none absolute inset-0 overflow-hidden rounded-full"
           aria-hidden
         >
           {particles.map((p) => (

@@ -7,6 +7,12 @@ export interface CertificateItem {
 
 export const CERTIFICATES: CertificateItem[] = [
   {
+    src: "/images/certificates/ai_enginner.png",
+    alt: "AI Engineer Course Certificate",
+    title: "AI Engineer Career Path",
+    issuer: "Scrimba",
+  },
+  {
     src: "/images/certificates/be10xai.jpg",
     alt: "Be10x AI certificate",
     title: "AI Tools Masterclass",
